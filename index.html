@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome to COVID Vaccine Booking Center</title>
+  <style>
+    body {
+      background-image: url('background-image.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+    .hidden {
+      opacity: 0;
+    }
+    h1 {
+      color: black;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    .letter {
+      display: inline-block;
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    .login-button {
+      text-decoration: none;
+      color: black;
+      background-color: #0efd42;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="welcome" class="hidden"></h1>
+  <a href="login.html" class="login-button">Click here to login</a>
+
+  <script>
+    const welcomeText = document.getElementById('welcome');
+    const text = "Welcome to COVID Vaccine Booking Center";
+    let newText = '';
+
+    for (let i = 0; i < text.length; i++) {
+      newText += `<span class="letter" style="animation-delay: ${i * 0.1}s;">${text[i]}</span>`;
+    }
+
+    welcomeText.innerHTML = newText;
+    welcomeText.classList.remove('hidden');
+  </script>
+</body>
+</html>

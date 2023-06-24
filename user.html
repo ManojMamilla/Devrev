@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vaccine Booking</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+
+</head>
+<body>
+  
+  <div class="container">
+    <h1>Vaccine Booking</h1>
+    <div id="logoutContainer">
+      <button id="logoutBtn">Logout</button>
+    </div>
+    <div class="remaining-slots">Remaining Slots Per Day You Can Book: <span id="remainingSlots"></span></div>
+    <div id="searchForm">
+      <h2>Search Vaccination Centers</h2>
+      <div class="location-selection">
+        <label for="locationDropdown" class="label-location">Select Location:</label>
+        <select id="locationDropdown">
+          <option value="" disabled selected>Select Location</option>
+        </select>
+      </div>
+      <button id="searchBtn" disabled>Search</button>
+    </div>
+    <div id="centersList" class="hide">
+      <h2>Available Vaccination Centers</h2>
+      <ul id="centers"></ul>
+    </div>
+    <div id="bookingForm" class="hide">
+      <h2>Book a Vaccination Slot</h2>
+      <form id="slotForm">
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="number" id="age" placeholder="Age" required>
+        <input type="hidden" id="selectedCenter">
+        <input type="hidden" id="selectedDate">
+        <button type="submit">Book Slot</button>
+      </form>
+    </div>
+    <div id="bookingStatus" class="hide">
+      <h2>Booking Status</h2>
+      <p id="statusMessage"></p>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+  
+</body>
+</html>

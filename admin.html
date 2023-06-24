@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" type="text/css" href="admin.css">
+</head>
+<body>
+  <h1>Admin Dashboard</h1>
+  <div id="logoutContainer">
+    <button id="logoutBtn">Logout</button>
+  </div>
+  <div id="dashboard">
+    <h2>Dashboard</h2>
+    <div id="summary"></div>
+  </div>
+  <div id="manageCenters">
+    <h2>Manage Vaccination Centers</h2>
+    <form id="addCenterForm">
+      <h3>Add/Edit Center</h3>
+      <input type="text" id="centerName" placeholder="Center Name" required>
+      <input type="text" id="centerAddress" placeholder="Address" required>
+      <input type="text" id="centerContact" placeholder="Contact" required>
+      <input type="number" id="centerSlots" placeholder="Slots" required>
+      <input type="date" id="date" required>
+      <button id="centerFormBtn" type="submit">Add</button>
+    </form>
+    <table id="centersList">
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Contact</th>
+        <th>Slots</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+    </table>
+  </div>
+  <script src="admin.js"></script>
+</body>
+</html>

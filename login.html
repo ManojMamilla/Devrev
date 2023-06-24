@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vaccine Booking center</title>
+    <link rel="stylesheet" href="login.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div class="title">User Login</div>
+        
+        <form id="userForm">
+          <div class="field">
+            <input type="text" id="userEmail" required>
+            <label>Email Address</label>
+          </div>
+          <div class="field">
+            <input type="password" id="userPassword" required>
+            <label>Password</label>
+          </div>
+          <div class="field">
+            <input type="submit" name="userSubmit">
+          </div>
+          <div class="signup-link">Not a member? <a href="signup.html">Signup now</a></div>
+        </form>
+        
+      </div>
+      <div class="wrapper">
+        <div class="title">Admin Login</div>
+        <form id="adminForm">
+          <div class="field">
+            <input type="text" id="adminEmail" required>
+            <label>Email Address or User Id</label>
+          </div>
+          <div class="field">
+            <input type="password" id="adminPassword" required>
+            <label>Password</label>
+          </div>
+          <div class="field">
+            <input type="submit" name="adminSubmit">
+          </div>
+          <div class="signup-link">This is Admin Page</div> 
+        </form>
+      </div>
+      
+    </div>
+
+    <script>
+      const userForm = document.getElementById("userForm");
+      const adminForm = document.getElementById("adminForm");
+      const userEmailInput = document.getElementById("userEmail");
+      const userPasswordInput = document.getElementById("userPassword");
+      const adminEmailInput = document.getElementById("adminEmail");
+      const adminPasswordInput = document.getElementById("adminPassword");
+
+      userForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const userEmailValue = userEmailInput.value;
+        const userPasswordValue = userPasswordInput.value;
+
+        const response = await fetch("https://devray1.onrender.com/auth/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email: userEmailValue, password: userPasswordValue }),
+        });
+
+        const json = await response.json();
+
+        if (json.sucess) {
+          console.log(json.authtoken);
+          localStorage.setItem("devray", json.authtoken);
+          location.replace("./user.html");
+        } else {
+          alert(json.errors);
+        }
+      });
+
+      adminForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const adminEmailValue = adminEmailInput.value;
+        const adminPasswordValue = adminPasswordInput.value;
+
+        if (adminEmailValue === "admin@gmail.com" && adminPasswordValue === "1234") {
+          location.replace("./admin.html");
+        }
+      });
+    </script>
+  </body>
+</html>
