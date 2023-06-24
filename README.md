@@ -18,6 +18,7 @@ Welcome to the Vaccination Booking System project! This is a web application tha
   - Search for vaccination centers based on location
   - View available slots at each center
   - Book slots for vaccination
+  - User can onlt book 10 slots per day
 - Admin Interface:
   - Manage vaccination centers
   - Add new centers
