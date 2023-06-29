@@ -30,8 +30,6 @@ Welcome to the Vaccination Booking System project! This is a web application tha
 - HTML
 - CSS
 - JavaScript
-- Node.js
-- Express.js
 - MongoDB
 
 
